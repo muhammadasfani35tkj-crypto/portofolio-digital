@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Backdrop Circles -->
+  <circle cx="250" cy="200" r="160" fill="#f0f9ff" />
+  <circle cx="250" cy="200" r="130" fill="#e0f2fe" opacity="0.6" />
+
+  <!-- Central Target / Goal / Identity Element -->
+  <g transform="translate(250, 190)">
+    <!-- Main Center Badge -->
+    <rect x="-85" y="-95" width="170" height="190" rx="20" fill="#ffffff" stroke="#bae6fd" stroke-width="2.5" filter="drop-shadow(0 15px 30px rgba(56, 189, 248, 0.2))" />
+    
+    <!-- User Icon in Badge -->
+    <circle cx="0" cy="-35" r="32" fill="#e0f2fe" />
+    <circle cx="0" cy="-42" r="14" fill="#0284c7" />
+    <path d="M-20 -15 C-20 -28 20 -28 20 -15 Z" fill="#0284c7" />
+
+    <!-- Name / Title Placeholders -->
+    <rect x="-50" y="10" width="100" height="12" rx="6" fill="#0f172a" />
+    <rect x="-35" y="30" width="70" height="8" rx="4" fill="#38bdf8" />
+    
+    <!-- Badges in Card -->
+    <rect x="-65" y="52" width="60" height="20" rx="10" fill="#f0f9ff" stroke="#bae6fd" />
+    <text x="-35" y="66" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#0284c7" text-anchor="middle">Tech</text>
+    
+    <rect x="5" y="52" width="60" height="20" rx="10" fill="#f0f9ff" stroke="#bae6fd" />
+    <text x="35" y="66" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#0284c7" text-anchor="middle">Creator</text>
+  </g>
+
+  <!-- Floating Satellites: Creative & Code Skills -->
+  <!-- Satellite 1: Code -->
+  <g transform="translate(100, 110)">
+    <circle cx="0" cy="0" r="34" fill="#ffffff" stroke="#7dd3fc" stroke-width="2" filter="drop-shadow(0 8px 16px rgba(186, 230, 253, 0.4))" />
+    <text x="0" y="8" font-family="'Courier New', monospace" font-size="22" font-weight="bold" fill="#0284c7" text-anchor="middle">&lt;/&gt;</text>
+  </g>
+
+  <!-- Satellite 2: Lightbulb / Ideas -->
+  <g transform="translate(400, 110)">
+    <circle cx="0" cy="0" r="34" fill="#ffffff" stroke="#7dd3fc" stroke-width="2" filter="drop-shadow(0 8px 16px rgba(186, 230, 253, 0.4))" />
+    <!-- Lightbulb SVG -->
+    <path d="M-9 -6 C-9 -14 9 -14 9 -6 C9 -1 4 2 4 6 L-4 6 C-4 2 -9 -1 -9 -6 Z" fill="#f59e0b" />
+    <rect x="-4" y="8" width="8" height="3" rx="1" fill="#94a3b8" />
+  </g>
+
+  <!-- Satellite 3: Palette / Design -->
+  <g transform="translate(90, 290)">
+    <circle cx="0" cy="0" r="34" fill="#ffffff" stroke="#7dd3fc" stroke-width="2" filter="drop-shadow(0 8px 16px rgba(186, 230, 253, 0.4))" />
+    <circle cx="-7" cy="-7" r="4" fill="#ef4444" />
+    <circle cx="7" cy="-7" r="4" fill="#3b82f6" />
+    <circle cx="0" cy="6" r="4" fill="#10b981" />
+  </g>
+
+  <!-- Satellite 4: Instagram / Social Network -->
+  <g transform="translate(410, 290)">
+    <circle cx="0" cy="0" r="34" fill="#ffffff" stroke="#7dd3fc" stroke-width="2" filter="drop-shadow(0 8px 16px rgba(186, 230, 253, 0.4))" />
+    <rect x="-11" y="-11" width="22" height="22" rx="6" fill="none" stroke="#0284c7" stroke-width="2.5" />
+    <circle cx="0" cy="0" r="5" fill="none" stroke="#0284c7" stroke-width="2" />
+    <circle cx="5" cy="-5" r="1.5" fill="#0284c7" />
+  </g>
+
+  <!-- Dotted Connection lines -->
+  <path d="M125 130 Q180 160 210 160" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6 6" fill="none" />
+  <path d="M375 130 Q320 160 290 160" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6 6" fill="none" />
+  <path d="M120 270 Q170 240 200 230" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6 6" fill="none" />
+  <path d="M380 270 Q330 240 300 230" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6 6" fill="none" />
+</svg>
