@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Farel Al Asfani - Portofolio Digital</title>
+  <meta name="description" content="Portofolio resmi Muhammad Farel Al Asfani, Siswa 35 TKJ SMK Telkom Malang. Fokus pada ITNSA, Futsal, Tech Enthusiast, dan Web Development.">
+
+  <!-- Favicon Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+
+  <!-- Early Theme Detection to prevent flash -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col bg-mesh-pattern selection:bg-sky-500 selection:text-white transition-colors duration-300">
+
+  <!-- TOP NAVBAR -->
+  <header class="sticky top-0 z-40 transition-all duration-300" id="mainNavbar">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo / Brand -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-600 to-cyan-400 flex items-center justify-center text-white font-extrabold text-lg shadow-md shadow-sky-500/25 group-hover:scale-105 transition-transform">
+            FA
+          </div>
+          <div class="flex flex-col">
+            <span class="font-extrabold text-slate-900 dark:text-white text-base tracking-tight leading-tight group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+              Muhammad Farel
+            </span>
+            <span class="text-xs font-semibold text-slate-600 dark:text-slate-300">
+              35 TKJ • SMK Telkom Malang
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-1 bg-white/70 dark:bg-slate-900/80 p-1.5 rounded-full border border-sky-100 dark:border-slate-800 backdrop-blur-md shadow-sm">
+          <a href="index.html" class="px-5 py-2 rounded-full text-sm font-bold bg-sky-600 text-white shadow-sm shadow-sky-600/30 transition-all">
+            Beranda
+          </a>
+          <a href="profil.html" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-800 transition-all">
+            Profil
+          </a>
+          <a href="kontak.html" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-800 transition-all">
+            Kontak
+          </a>
+        </nav>
+
+        <!-- Right Side: Theme Toggle & Contact CTA -->
+        <div class="flex items-center gap-3">
+          <!-- Theme Toggle Button -->
+          <button type="button" class="theme-toggle-btn w-10 h-10 rounded-full border border-sky-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-sm" title="Ubah Mode Tampilan">
+            ☀️
+          </button>
+
+          <!-- Contact Quick Button -->
+          <a href="kontak.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:bg-sky-600 dark:hover:bg-sky-400 hover:text-white transition-all shadow-sm">
+            <span>Hubungi</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+
+          <!-- Mobile Menu Hamburger -->
+          <button id="mobileMenuBtn" type="button" class="md:hidden w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-sky-100 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-sky-600 focus:outline-none">
+            <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 pt-2">
+      <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl border border-sky-100 dark:border-slate-800 shadow-xl p-3 space-y-1">
+        <a href="index.html" class="block px-4 py-2.5 rounded-xl text-sm font-bold bg-sky-600 text-white">
+          Beranda
+        </a>
+        <a href="profil.html" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800">
+          Profil Lengkap
+        </a>
+        <a href="kontak.html" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800">
+          Halaman Kontak
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow">
+    <!-- HERO SECTION -->
+    <section class="relative pt-8 pb-16 sm:pt-14 sm:pb-24 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Column: Introduction & Details -->
+          <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+            
+            <!-- School & Status Pill -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-sky-100/90 dark:bg-sky-950/80 border border-sky-200 dark:border-sky-800 text-sky-800 dark:text-sky-300 text-xs sm:text-sm font-bold shadow-sm">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Siswa 35 TKJ • SMK Telkom Malang</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+              Halo, Saya <span class="bg-gradient-to-r from-sky-600 to-cyan-500 dark:from-sky-400 dark:to-cyan-300 bg-clip-text text-transparent">Muhammad Farel</span> Al Asfani
+            </h1>
+
+            <!-- Semi-formal Description -->
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Selamat datang di portofolio digital saya. Saya berfokus mendalami <strong>ITNSA</strong> (IT Network & System Administration) dan dunia teknologi digital, sembari terus memupuk sportivitas serta kepemimpinan tim melalui olahraga <strong>Futsal</strong>.
+            </p>
+
+            <!-- Focus Badges Quick Bar -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
+              <span class="px-3 py-1 rounded-xl bg-white dark:bg-slate-800 border border-sky-100 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 shadow-sm">
+                🌐 ITNSA & Networking
+              </span>
+              <span class="px-3 py-1 rounded-xl bg-white dark:bg-slate-800 border border-sky-100 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 shadow-sm">
+                ⚽ Futsal & Kerjasama Tim
+              </span>
+              <span class="px-3 py-1 rounded-xl bg-white dark:bg-slate-800 border border-sky-100 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 shadow-sm">
+                💻 Tech Enthusiast
+              </span>
+              <span class="px-3 py-1 rounded-xl bg-white dark:bg-slate-800 border border-sky-100 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 shadow-sm">
+                🎨 Web Design
+              </span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
+              <a href="profil.html" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm text-center shadow-lg shadow-sky-600/30 hover:shadow-sky-600/40 hover:-translate-y-0.5 transition-all">
+                Pelajari Profil Lengkap
+              </a>
+              <a href="kontak.html" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 border border-sky-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm text-center shadow-sm hover:-translate-y-0.5 transition-all">
+                Hubungi Saya
+              </a>
+            </div>
+
+            <!-- Direct Contact Links -->
+            <div class="pt-4 border-t border-sky-100 dark:border-slate-800 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-medium text-slate-600 dark:text-slate-300">
+              <a href="https://wa.me/6282213102028" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <span class="text-emerald-500">💬</span> +62 822-1310-2028
+              </a>
+              <span class="text-slate-300 dark:text-slate-700">•</span>
+              <a href="mailto:muhammad_asfani_35tkj@student.smktelkom-mlg.sch.id" class="flex items-center gap-1.5 hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                <span>✉️</span> muhammad_asfani_35tkj@...
+              </a>
+              <span class="text-slate-300 dark:text-slate-700">•</span>
+              <a href="https://instagram.com/f4rreellll" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
+                <span>📸</span> @f4rreellll
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: User Photo & Floating Interactive Elements -->
+          <div class="lg:col-span-5 flex justify-center items-center">
+            <div class="relative w-full max-w-sm sm:max-w-md">
+              
+              <!-- Soft ambient backdrop glow -->
+              <div class="absolute -inset-4 bg-gradient-to-tr from-sky-400/30 to-cyan-300/30 dark:from-sky-600/20 dark:to-cyan-500/20 rounded-full blur-2xl -z-10"></div>
+
+              <!-- Main Photo Frame -->
+              <div class="relative rounded-3xl overflow-hidden p-2.5 bg-gradient-to-tr from-white via-sky-50 to-white dark:from-slate-800 dark:via-slate-800/80 dark:to-slate-900 border border-sky-200/80 dark:border-slate-700 shadow-2xl shadow-sky-500/10">
+                <div class="relative rounded-2xl overflow-hidden aspect-square bg-slate-100 dark:bg-slate-800 group">
+                  <img 
+                    src="photo-farel.jpg" 
+                    onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src='assets/images/photo-farel.jpg';}"
+                    alt="Foto Muhammad Farel Al Asfani" 
+                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    loading="eager"
+                  >
+                  <!-- Gradient overlay at bottom -->
+                  <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent flex items-end p-4">
+                    <div>
+                      <p class="text-white text-base font-extrabold tracking-tight">Muhammad Farel Al Asfani</p>
+                      <p class="text-sky-300 text-xs font-semibold">SMK Telkom Malang • 35 TKJ</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Card 1: Futsal -->
+              <div class="absolute -top-4 -left-4 sm:-left-6 animate-float bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl border border-sky-200 dark:border-slate-700 shadow-xl shadow-sky-500/15 flex items-center gap-2.5">
+                <span class="text-xl">⚽</span>
+                <div>
+                  <p class="text-[10px] uppercase font-bold text-slate-600 dark:text-slate-300">Minat & Hobi</p>
+                  <p class="text-xs font-extrabold text-slate-900 dark:text-white">Futsal & Sportivitas</p>
+                </div>
+              </div>
+
+              <!-- Floating Card 2: ITNSA -->
+              <div class="absolute -bottom-4 -right-4 sm:-right-6 animate-float-delayed bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl border border-sky-200 dark:border-slate-700 shadow-xl shadow-sky-500/15 flex items-center gap-2.5">
+                <span class="text-xl">🌐</span>
+                <div>
+                  <p class="text-[10px] uppercase font-bold text-sky-700 dark:text-sky-300">Bidang Keahlian</p>
+                  <p class="text-xs font-extrabold text-slate-900 dark:text-white">ITNSA / SysAdmin</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: BIDANG FOKUS & KOMPETENSI UTAMA -->
+    <section class="py-16 bg-white/60 dark:bg-slate-900/50 border-y border-sky-100 dark:border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-sky-700 dark:text-sky-300 bg-sky-100 dark:bg-sky-950 px-3 py-1 rounded-full">
+            Bidang Fokus Utama
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-3">
+            Kompetensi, Minat, dan Dedikasi
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-2">
+            Perpaduan antara kecakapan teknis sistem jaringan, olahraga beregu, serta rasa ingin tahu yang tinggi pada teknologi digital.
+          </p>
+        </div>
+
+        <!-- 4 Grid Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Card 1: ITNSA -->
+          <div class="glass-card p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400 flex items-center justify-center text-2xl shadow-sm">
+                📡
+              </div>
+              <h3 class="text-lg font-extrabold text-slate-900 dark:text-white">
+                ITNSA
+              </h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Mendalami <em>IT Network & System Administration</em>, termasuk konfigurasi router/switch, manajemen server, sistem operasi Linux/Windows, serta pemeliharaan keandalan jaringan.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-sky-100 dark:border-slate-800">
+              <span class="text-[11px] font-bold text-sky-700 dark:text-sky-300">Jaringan • Server • Keamanan</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Futsal -->
+          <div class="glass-card p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-2xl shadow-sm">
+                ⚽
+              </div>
+              <h3 class="text-lg font-extrabold text-slate-900 dark:text-white">
+                Futsal & Sportivitas
+              </h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Menekuni olahraga futsal secara aktif untuk membentuk ketahanan fisik, fokus strategis di bawah tekanan, rasa percaya antar-rekan, serta kedisiplinan kerja tim yang tinggi.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-sky-100 dark:border-slate-800">
+              <span class="text-[11px] font-bold text-emerald-700 dark:text-emerald-300">Kerjasama • Disiplin • Strategi</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Tech Enthusiast -->
+          <div class="glass-card p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl shadow-sm">
+                🚀
+              </div>
+              <h3 class="text-lg font-extrabold text-slate-900 dark:text-white">
+                Tech Enthusiast
+              </h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Memiliki antusiasme tinggi untuk terus mengikuti tren teknologi terbaru, AI, otomasi sistem, arsitektur cloud, serta pembaruan teknologi perangkat keras dan lunak.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-sky-100 dark:border-slate-800">
+              <span class="text-[11px] font-bold text-indigo-700 dark:text-indigo-300">Inovasi • AI • Otomasi</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Web Development -->
+          <div class="glass-card p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl shadow-sm">
+                💻
+              </div>
+              <h3 class="text-lg font-extrabold text-slate-900 dark:text-white">
+                Web Development & UI
+              </h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Mengembangkan website responsif, estetik, dan mudah diakses menggunakan standar kode web modern, estetika tata letak, serta integrasi komponen yang fleksibel.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-sky-100 dark:border-slate-800">
+              <span class="text-[11px] font-bold text-amber-700 dark:text-amber-300">Frontend • Desain UI • Responsif</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Link to Profil Page -->
+        <div class="mt-10 text-center">
+          <a href="profil.html" class="inline-flex items-center gap-2 text-sm font-bold text-sky-700 dark:text-sky-300 hover:text-sky-800 dark:hover:text-sky-200 group">
+            <span>Pelajari selengkapnya tentang latar belakang & keterampilan teknis saya</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: SEKILAS TENTANG SAYA & NILAI KERJA -->
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          
+          <div class="space-y-5">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-sky-700 dark:text-sky-300 bg-sky-100 dark:bg-sky-950 px-3 py-1 rounded-full">
+              Latar Belakang Pendidikan
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+              Siswa Berdedikasi di SMK Telkom Malang
+            </h2>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Sebagai siswa di kelas <strong>35 TKJ</strong> SMK Telkom Malang, saya terbiasa belajar dengan standar disiplin tinggi, budaya kerja profesional, dan kurikulum kejuruan yang berbasis industri.
+            </p>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Bagi saya, penguasaan teori jaringan harus selalu dibarengi dengan praktik konfigurasi yang solid serta kemampuan bekerja sama secara harmonis di dalam tim.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-sky-100 dark:border-slate-800 shadow-sm">
+                <p class="text-2xl font-extrabold text-sky-600 dark:text-sky-400">35 TKJ</p>
+                <p class="text-xs font-semibold text-slate-600 dark:text-slate-300 mt-0.5">Kompetensi Keahlian</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-sky-100 dark:border-slate-800 shadow-sm">
+                <p class="text-2xl font-extrabold text-sky-600 dark:text-sky-400">100%</p>
+                <p class="text-xs font-semibold text-slate-600 dark:text-slate-300 mt-0.5">Komitmen & Semangat</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Highlight Right Box -->
+          <div class="p-7 rounded-3xl bg-gradient-to-br from-sky-500/10 via-sky-50/50 to-transparent dark:from-sky-950/40 dark:via-slate-900 dark:to-slate-900/50 border border-sky-200/80 dark:border-slate-800 shadow-lg space-y-5">
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+              <span>🎯</span> Prinsip & Karakter Kerja
+            </h3>
+            <ul class="space-y-3.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li class="flex items-start gap-2.5">
+                <span class="text-sky-600 dark:text-sky-400 font-bold">✓</span>
+                <span><strong>Ketelitian Teknis:</strong> Memastikan setiap konfigurasi routing, server, dan kabel terpasang dengan presisi.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-sky-600 dark:text-sky-400 font-bold">✓</span>
+                <span><strong>Semangat Sportivitas:</strong> Menjunjung tinggi kejujuran, saling menghargai pendapat, dan komunikasi efektif.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-sky-600 dark:text-sky-400 font-bold">✓</span>
+                <span><strong>Pembelajar Cepat (Agile Learner):</strong> Terus mencari wawasan baru untuk mengatasi kendala teknologi dengan solusi optimal.</span>
+              </li>
+            </ul>
+
+            <div class="pt-2">
+              <a href="profil.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 text-white font-bold text-xs hover:bg-sky-700 transition-colors shadow-sm">
+                Baca Selengkapnya di Halaman Profil
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: KONTAK & MEDIA SOSIAL SINGKAT -->
+    <section class="py-16 bg-white/70 dark:bg-slate-900/60 border-t border-sky-100 dark:border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-sky-600 via-sky-700 to-cyan-600 text-white shadow-xl relative overflow-hidden">
+          
+          <!-- Background decoration -->
+          <div class="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
+
+          <div class="relative z-10 max-w-2xl space-y-4">
+            <span class="text-xs font-bold uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full inline-block backdrop-blur-sm">
+              Mari Terhubung
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+              Tertarik Berdiskusi atau Berkolaborasi?
+            </h2>
+            <p class="text-sky-100 text-sm leading-relaxed">
+              Saya siap berdiskusi seputar proyek jaringan, sistem administrasi, pengembangan web, maupun kegiatan olahraga futsal.
+            </p>
+            
+            <div class="flex flex-wrap items-center gap-3 pt-3">
+              <a href="kontak.html" class="px-6 py-3 rounded-2xl bg-white text-sky-800 hover:bg-sky-50 font-extrabold text-sm shadow-md transition-all">
+                Kirim Pesan ke Kontak
+              </a>
+              <a href="https://wa.me/6282213102028" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md transition-all flex items-center gap-2">
+                <span>💬 WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-sky-100 dark:border-slate-800 py-10 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-sky-600 text-white font-extrabold flex items-center justify-center text-sm shadow-sm">
+            FA
+          </div>
+          <div>
+            <p class="font-extrabold text-sm text-slate-900 dark:text-white">Muhammad Farel Al Asfani</p>
+            <p class="text-xs text-slate-600 dark:text-slate-300">Portofolio Digital • 35 TKJ SMK Telkom Malang</p>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="flex items-center gap-6 text-xs font-semibold text-slate-600 dark:text-slate-300">
+          <a href="index.html" class="text-sky-600 dark:text-sky-400 font-bold">Beranda</a>
+          <a href="profil.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Profil</a>
+          <a href="kontak.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Kontak</a>
+        </div>
+
+        <!-- Social Handles & Copyright -->
+        <div class="text-center md:text-right text-xs text-slate-600 dark:text-slate-300 space-y-1">
+          <p>© 2026 Muhammad Farel Al Asfani. Hak cipta dilindungi.</p>
+          <p>
+            Instagram: 
+            <a href="https://instagram.com/f4rreellll" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-sky-400 font-semibold hover:underline">@f4rreellll</a> & 
+            <a href="https://instagram.com/_mhananarrafiff" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-sky-400 font-semibold hover:underline">@_mhananarrafiff</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>
