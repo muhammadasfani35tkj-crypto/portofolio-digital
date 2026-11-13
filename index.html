@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Farel Al Asfani - Portofolio Digital</title>
+  <meta name="description" content="Portofolio digital resmi Muhammad Farel Al Asfani - Siswa SMK Telkom Malang kelas 35 TKJ. Fokus keahlian ITNSA, Futsal, Tech Enthusiast, dan Web Development.">
+  
+  <!-- Tailwind CSS CDN with Dark Mode Class Support -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            sky: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            darkbg: {
+              DEFAULT: '#0b1120',
+              card: '#151e32',
+              cardHover: '#1c2844',
+              border: '#223254',
+              subtle: '#10172a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Prevent Theme Flash -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+  <!-- Google Font: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ================= EMBEDDED ALL-IN-ONE CSS ================= -->
+  <style>
+    :root {
+      --font-family: 'Plus Jakarta Sans', sans-serif;
+      --bg-light: #f8fafc;
+      --text-main: #0f172a;
+      --card-bg-light: rgba(255, 255, 255, 0.90);
+      --card-border-light: rgba(224, 242, 254, 0.9);
+      --card-shadow-light: 0 10px 25px -5px rgba(186, 230, 253, 0.35);
+    }
+
+    * {
+      font-family: var(--font-family);
+      box-sizing: border-box;
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Scroll progress bar */
+    #scrollProgress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0284c7, #38bdf8, #818cf8);
+      z-index: 100;
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Light Mesh Background */
+    .theme-mesh {
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(186, 230, 253, 0.5) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(224, 242, 254, 0.6) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(240, 249, 255, 0.7) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(186, 230, 253, 0.4) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(224, 242, 254, 0.5) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Dark Mesh Background */
+    .dark .theme-mesh {
+      background-color: #0b1120;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(30, 58, 138, 0.2) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.8) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.12) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(30, 41, 59, 0.6) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Glass Cards */
+    .glass-card {
+      background: var(--card-bg-light);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border-light);
+      box-shadow: var(--card-shadow-light);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: #7dd3fc;
+      box-shadow: 0 20px 35px -10px rgba(56, 189, 248, 0.3);
+    }
+
+    .dark .glass-card {
+      background: rgba(21, 30, 50, 0.85);
+      border-color: rgba(34, 50, 84, 0.9);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
+    }
+
+    .dark .glass-card:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 20px 35px -10px rgba(14, 165, 233, 0.35);
+    }
+
+    /* Scroll Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* Floating animation */
+    @keyframes floatKey {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .animate-float {
+      animation: floatKey 4s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+      animation: floatKey 4s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    .dark ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
+  </style>
+</head>
+<body class="theme-mesh text-slate-800 dark:text-slate-100 min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scrollProgress"></div>
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header id="mainNavbar" class="sticky top-0 z-40 transition-all duration-300 bg-white/85 dark:bg-darkbg/90 backdrop-blur-md border-b border-sky-100 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
+      
+      <!-- Brand & School Identity -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-600 to-sky-400 dark:from-sky-500 dark:to-indigo-500 flex items-center justify-center text-white font-extrabold text-xl shadow-md shadow-sky-300/40 dark:shadow-sky-500/20 group-hover:scale-105 transition-transform">
+          F
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">Farel<span class="text-sky-500">.</span></span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800">35 TKJ</span>
+          </div>
+          <span class="text-[10px] text-sky-700 dark:text-sky-400 font-semibold tracking-wider">SMK TELKOM MALANG</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-1 bg-sky-50/80 dark:bg-slate-800/80 p-1.5 rounded-full border border-sky-200/80 dark:border-slate-700">
+        <a href="index.html" class="px-5 py-2 rounded-full text-sm font-bold bg-white dark:bg-sky-600 text-sky-600 dark:text-white shadow-sm">
+          Beranda
+        </a>
+        <a href="profil.html" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-700 transition-all">
+          Profil
+        </a>
+        <a href="kontak.html" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-700 transition-all">
+          Kontak
+        </a>
+      </nav>
+
+      <!-- Desktop Action: Theme Toggle & Dual Instagram Links -->
+      <div class="hidden md:flex items-center gap-3">
+        
+        <!-- Theme Toggle Button (Light / Dark) -->
+        <button id="themeToggleBtn" aria-label="Ganti Tema Tampilan" class="p-2.5 rounded-2xl bg-sky-50 dark:bg-slate-800 text-slate-700 dark:text-sky-300 border border-sky-200 dark:border-slate-700 hover:bg-sky-100 dark:hover:bg-slate-700 transition-all shadow-sm flex items-center justify-center" title="Ubah Tema (Light / Dark)">
+          <svg id="sunIcon" class="w-5 h-5 hidden dark:block text-amber-300" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+          <svg id="moonIcon" class="w-5 h-5 block dark:hidden text-sky-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+        </button>
+
+        <!-- Instagram Primary (@f4rreellll) -->
+        <a href="https://instagram.com/f4rreellll" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-gradient-to-r from-sky-600 to-sky-500 hover:from-sky-700 hover:to-sky-600 text-white text-xs font-bold shadow-md shadow-sky-500/20 hover:shadow-lg transition-all" title="Instagram Utama">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>@f4rreellll</span>
+        </a>
+
+        <!-- Instagram Secondary (@_mhananarrafiff) -->
+        <a href="https://instagram.com/_mhananarrafiff" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-3 py-2 rounded-full bg-sky-50 dark:bg-slate-800 hover:bg-sky-100 dark:hover:bg-slate-700 text-sky-700 dark:text-sky-300 text-xs font-bold border border-sky-200 dark:border-slate-700 transition-all" title="Instagram Kedua">
+          <span>@_mhananarrafiff</span>
+        </a>
+      </div>
+
+      <!-- Mobile Controls (Theme Toggle & Menu Button) -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="mobileThemeToggleBtn" aria-label="Ganti Tema" class="p-2 rounded-xl bg-sky-50 dark:bg-slate-800 text-slate-700 dark:text-sky-300 border border-sky-200 dark:border-slate-700">
+          <svg class="w-5 h-5 hidden dark:block text-amber-300" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+          <svg class="w-5 h-5 block dark:hidden text-sky-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+        </button>
+        <button id="mobileMenuBtn" aria-label="Buka Menu" class="p-2 rounded-xl bg-sky-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-sky-600 transition-all border border-sky-200 dark:border-slate-700">
+          <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-5 pt-2 pb-6 bg-white/95 dark:bg-darkbg/95 backdrop-blur-lg border-b border-sky-100 dark:border-slate-800 space-y-3">
+      <div class="flex flex-col gap-2">
+        <a href="index.html" class="px-4 py-2.5 rounded-xl font-bold bg-sky-100 dark:bg-sky-900/60 text-sky-700 dark:text-sky-300">Beranda</a>
+        <a href="profil.html" class="px-4 py-2.5 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800">Profil</a>
+        <a href="kontak.html" class="px-4 py-2.5 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-sky-50 dark:hover:bg-slate-800">Kontak</a>
+      </div>
+      <div class="pt-3 border-t border-sky-100 dark:border-slate-800 space-y-2">
+        <a href="https://instagram.com/f4rreellll" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-sky-600 text-white font-bold shadow-md text-sm">
+          <span>Instagram Utama: @f4rreellll</span>
+        </a>
+        <a href="https://instagram.com/_mhananarrafiff" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-sky-100 dark:bg-slate-800 text-sky-800 dark:text-sky-300 font-bold border border-sky-200 dark:border-slate-700 text-sm">
+          <span>Instagram Kedua: @_mhananarrafiff</span>
+        </a>
+        <a href="https://wa.me/6282213102028" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-600 text-white font-bold shadow-sm text-sm">
+          <span>WhatsApp: +62 822-1310-2028</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <main class="flex-grow">
+    <section class="max-w-6xl mx-auto px-5 pt-12 pb-16 md:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content (Text) -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal">
+          
+          <!-- Badge Identity -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100/90 dark:bg-sky-950/80 border border-sky-200 dark:border-sky-800 text-sky-800 dark:text-sky-300 text-xs font-bold shadow-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-sky-500 animate-pulse"></span>
+            <span>SMK Telkom Malang &bull; 35 TKJ &bull; Portofolio Resmi</span>
+          </div>
+
+          <!-- Main Catchy Title (Correct Name) -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.2]">
+            Halo, Saya <span class="bg-gradient-to-r from-sky-600 via-sky-400 to-indigo-500 bg-clip-text text-transparent">Muhammad Farel</span> Al Asfani
+          </h1>
+
+          <!-- Description (Semi-Formal, Passionate & Professional) -->
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Selamat datang di portofolio digital saya. Saya adalah siswa <strong>SMK Telkom Malang</strong> kelas <strong>35 TKJ (Teknik Komputer dan Jaringan)</strong> dengan fokus keahlian pada <strong>ITNSA</strong> (Administrasi Jaringan &amp; Sistem), <strong>Web Development</strong>, dunia <strong>Tech Enthusiast</strong>, serta hobi aktif di bidang olahraga <strong>Futsal</strong>.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="profil.html" class="px-7 py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-sky-600/25 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2">
+              <span>Jelajahi Profil Lengkap</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </a>
+            <a href="kontak.html" class="px-7 py-3.5 rounded-2xl bg-white dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-slate-700 font-bold text-sm sm:text-base shadow-sm hover:border-sky-300 transition-all flex items-center gap-2">
+              <span>Hubungi Saya</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Quick Contacts Pill (WhatsApp + Dual Instagram) -->
+          <div class="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+            <a href="https://wa.me/6282213102028" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-bold hover:scale-105 transition-transform">
+              <span>💬 +62 822-1310-2028</span>
+            </a>
+            <a href="https://instagram.com/f4rreellll" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-50 dark:bg-slate-800 border border-sky-200 dark:border-slate-700 text-sky-700 dark:text-sky-300 text-xs font-bold hover:scale-105 transition-transform">
+              <span>📸 @f4rreellll</span>
+            </a>
+            <a href="https://instagram.com/_mhananarrafiff" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-50 dark:bg-slate-800 border border-sky-200 dark:border-slate-700 text-sky-700 dark:text-sky-300 text-xs font-bold hover:scale-105 transition-transform">
+              <span>📸 @_mhananarrafiff</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Visual: User Photo & Floating Badges -->
+        <div class="lg:col-span-5 relative flex justify-center reveal reveal-delay-2">
+          
+          <!-- Background Ambient Glow -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-sky-400/30 via-indigo-500/20 to-sky-300/30 rounded-3xl blur-3xl -z-10 transform scale-95"></div>
+
+          <!-- Profile Card Wrapper -->
+          <div class="relative w-full max-w-sm">
+            <div class="glass-card rounded-3xl p-4 sm:p-5 border-2 border-sky-200 dark:border-slate-700 overflow-hidden relative">
+              
+              <!-- Actual User Photo -->
+              <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 relative shadow-inner">
+                <img 
+                  src="assets/images/photo-farel.jpg" 
+                  alt="Foto Muhammad Farel Al Asfani" 
+                  class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                  onerror="this.src='assets/images/avatar-farel.svg'"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-transparent to-transparent"></div>
+                
+                <!-- Bottom text over photo -->
+                <div class="absolute bottom-3 left-4 right-4 text-white">
+                  <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-sky-600">SMK TELKOM MALANG</span>
+                  <h4 class="font-extrabold text-base mt-1 drop-shadow-md">Muhammad Farel Al Asfani</h4>
+                  <p class="text-xs text-sky-200">35 TKJ &bull; ITNSA &amp; Futsal</p>
+                </div>
+              </div>
+
+              <!-- Floating Mini Badges -->
+              <div class="absolute top-8 right-6 bg-sky-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg animate-float flex items-center gap-1.5">
+                <span>⚡ ITNSA &bull; 35 TKJ</span>
+              </div>
+
+              <div class="absolute -bottom-3 -left-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-white text-xs font-bold px-4 py-2 rounded-2xl shadow-xl border border-sky-200 dark:border-slate-700 animate-float-delayed flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span>⚽ Futsal Enthusiast</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION: BIDANG FOKUS UTAMA ================= -->
+    <section class="max-w-6xl mx-auto px-5 py-16">
+      <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-sky-700 dark:text-sky-400 bg-sky-100 dark:bg-sky-950 px-3.5 py-1.5 rounded-full border border-sky-200 dark:border-sky-800">
+          Bidang Fokus &amp; Passion
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-4">
+          Aktivitas, Keahlian &amp; Minat Utama
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 mt-3 text-sm sm:text-base leading-relaxed">
+          Kombinasi antara kompetensi teknis jaringan di SMK Telkom Malang, eksplorasi teknologi, dan keseimbangan aktivitas fisik lewat olahraga futsal.
+        </p>
+      </div>
+
+      <!-- Grid 5 Bidang Fokus (Termasuk Futsal, ITNSA, Tech Enthusiast) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Fokus 1: ITNSA -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 relative group reveal reveal-delay-1 border-t-4 border-t-sky-500">
+          <div class="w-14 h-14 rounded-2xl bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-300 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🌐
+          </div>
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-slate-800 px-2 py-0.5 rounded">Jaringan Komputer</span>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 group-hover:text-sky-500 transition-colors">
+            ITNSA (IT Network &amp; System Administration)
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-2.5 leading-relaxed">
+            Spesialisasi inti jurusan TKJ di SMK Telkom Malang: perancangan topologi jaringan, konfigurasi perangkat router &amp; switch (MikroTik/Cisco), administrasi server Linux/Windows, serta keamanan infrastruktur IT.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-xs font-semibold text-sky-600 dark:text-sky-400">
+            <span>✓ Routing, Switching &amp; Server Admin</span>
+          </div>
+        </div>
+
+        <!-- Fokus 2: Futsal -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 relative group reveal reveal-delay-2 border-t-4 border-t-emerald-500">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-300 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            ⚽
+          </div>
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-slate-800 px-2 py-0.5 rounded">Olahraga &amp; Tim</span>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 group-hover:text-emerald-500 transition-colors">
+            Futsal &amp; Sportivitas
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-2.5 leading-relaxed">
+            Aktivitas olahraga yang melatih kelincahan fisik, strategi taktis cepat, kepemimpinan, daya tahan mental, serta kerja sama tim yang solid di dalam maupun luar lapangan pertandingan.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+            <span>✓ Teamwork, Kecepatan &amp; Disiplin</span>
+          </div>
+        </div>
+
+        <!-- Fokus 3: Tech Enthusiast -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 relative group reveal reveal-delay-3 border-t-4 border-t-indigo-500">
+          <div class="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-300 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            ⚡
+          </div>
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-slate-800 px-2 py-0.5 rounded">Eksplorasi Inovasi</span>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 group-hover:text-indigo-500 transition-colors">
+            Tech Enthusiast
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-2.5 leading-relaxed">
+            Selalu haus akan perkembangan teknologi baru: tren komputasi awan, inovasi hardware, sistem operasi modern, AI tools, dan solusi otomatisasi yang mempermudah kehidupan sehari-hari.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-xs font-semibold text-indigo-600 dark:text-indigo-400">
+            <span>✓ Hardware, Cloud &amp; Tren Digital</span>
+          </div>
+        </div>
+
+        <!-- Fokus 4: Web Development -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 relative group reveal reveal-delay-4 border-t-4 border-t-amber-500">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-300 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            💻
+          </div>
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-slate-800 px-2 py-0.5 rounded">Pemrograman Web</span>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 group-hover:text-amber-500 transition-colors">
+            Pengembangan Web Modern
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-2.5 leading-relaxed">
+            Menulis kode HTML5, Tailwind CSS, dan JavaScript interaktif dengan struktur bersih dan performa kencang. Mudah diakses di berbagai perangkat desktop maupun ponsel.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-xs font-semibold text-amber-600 dark:text-amber-400">
+            <span>✓ Kode Bersih &amp; Terstruktur</span>
+          </div>
+        </div>
+
+        <!-- Fokus 5: UI/UX & Desain Antarmuka -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 relative group reveal reveal-delay-1 border-t-4 border-t-pink-500 lg:col-span-2">
+          <div class="w-14 h-14 rounded-2xl bg-pink-100 dark:bg-pink-950 text-pink-600 dark:text-pink-300 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+            🎨
+          </div>
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-slate-800 px-2 py-0.5 rounded">Desain &amp; Estetika</span>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 group-hover:text-pink-500 transition-colors">
+            Desain Antarmuka Pengguna (Light &amp; Dark Theme)
+          </h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mt-2.5 leading-relaxed">
+            Memastikan pengalaman pengunjung nyaman melalui perpaduan tata letak yang proporsional, tipografi yang jelas, serta dukungan tema terang dan gelap yang dapat disesuaikan sesuai preferensi pengguna.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-xs font-semibold text-pink-600 dark:text-pink-400">
+            <span>✓ Responsif, Ergonomis &amp; Ramah Mata</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION: SHOWCASE PROFIL SINGKAT ================= -->
+    <section class="max-w-6xl mx-auto px-5 py-12">
+      <div class="glass-card rounded-3xl p-8 sm:p-12 border-2 border-sky-200 dark:border-slate-700 shadow-sm relative overflow-hidden reveal">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-sky-700 dark:text-sky-300 bg-sky-100 dark:bg-sky-950 px-3.5 py-1 rounded-full">
+              🎓 Profil Siswa SMK Telkom Malang
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+              Ingin Mengetahui Lebih Jauh Pengalaman &amp; Proyek Saya?
+            </h2>
+            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+              Di halaman profil lengkap, Anda dapat melihat riwayat pembelajaran kejuruan TKJ, konfigurasi lab jaringan, prinsip kerja, serta showcase portofolio yang telah saya kerjakan.
+            </p>
+            <div class="pt-2">
+              <a href="profil.html" class="inline-flex items-center gap-2 text-sky-600 dark:text-sky-400 font-extrabold hover:underline text-sm sm:text-base group">
+                <span>Buka Halaman Profil Lengkap</span>
+                <span class="group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="w-full max-w-xs bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-xl border border-sky-100 dark:border-slate-700 text-center">
+              <div class="w-24 h-24 mx-auto rounded-full p-1 border-2 border-sky-400 mb-3 overflow-hidden shadow-sm">
+                <img src="assets/images/photo-farel.jpg" alt="Foto Farel" class="w-full h-full object-cover object-top rounded-full">
+              </div>
+              <h4 class="font-extrabold text-slate-900 dark:text-white text-base">M. Farel Al Asfani</h4>
+              <p class="text-xs text-sky-600 dark:text-sky-400 font-semibold mt-0.5">35 TKJ &bull; SMK Telkom Malang</p>
+              
+              <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-around text-center">
+                <div>
+                  <span class="block font-black text-slate-800 dark:text-white text-sm">ITNSA</span>
+                  <span class="text-[10px] text-slate-500">Jaringan</span>
+                </div>
+                <div class="border-l border-slate-100 dark:border-slate-700"></div>
+                <div>
+                  <span class="block font-black text-emerald-600 text-sm">Futsal</span>
+                  <span class="text-[10px] text-slate-500">Olahraga</span>
+                </div>
+                <div class="border-l border-slate-100 dark:border-slate-700"></div>
+                <div>
+                  <span class="block font-black text-sky-600 text-sm">Vercel</span>
+                  <span class="text-[10px] text-slate-500">Deployment</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION: DUA AKUN INSTAGRAM & KONTAK ================= -->
+    <section class="max-w-6xl mx-auto px-5 py-12">
+      <div class="glass-card rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden border-2 border-sky-200 dark:border-slate-700 reveal">
+        
+        <div class="max-w-2xl mx-auto space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-600 to-sky-400 text-white flex items-center justify-center mx-auto shadow-md text-2xl">
+            🤝
+          </div>
+          
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+            Mari Terhubung &amp; Berkolaborasi
+          </h2>
+          
+          <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            Terbuka untuk diskusi seputar teknologi jaringan, proyek website, latihan futsal bersama, maupun kesempatan magang dan kerja sama digital.
+          </p>
+
+          <!-- Dual Instagram Cards (Lama: @f4rreellll, Di Bawahnya: @_mhananarrafiff) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto pt-2">
+            
+            <!-- Instagram 1 (Utama / Lama: @f4rreellll) -->
+            <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-sky-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-sky-600 dark:text-sky-400 tracking-wider">Instagram Utama</span>
+                <p class="text-base font-extrabold text-slate-900 dark:text-white mt-1">@f4rreellll</p>
+              </div>
+              <a href="https://instagram.com/f4rreellll" target="_blank" rel="noopener noreferrer" class="mt-3 py-2 px-4 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                <span>Buka @f4rreellll</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+
+            <!-- Instagram 2 (Kedua / Di Bawahnya: @_mhananarrafiff) -->
+            <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-sky-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-indigo-600 dark:text-indigo-400 tracking-wider">Instagram Kedua</span>
+                <p class="text-base font-extrabold text-slate-900 dark:text-white mt-1">@_mhananarrafiff</p>
+              </div>
+              <a href="https://instagram.com/_mhananarrafiff" target="_blank" rel="noopener noreferrer" class="mt-3 py-2 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                <span>Buka @_mhananarrafiff</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Direct WhatsApp Button -->
+          <div class="pt-2">
+            <a href="https://wa.me/6282213102028" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-all">
+              <span>Chat WhatsApp: +62 822-1310-2028</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-white/90 dark:bg-darkbg/90 border-t border-sky-100 dark:border-slate-800 mt-16 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-5 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Brand -->
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-sky-600 text-white flex items-center justify-center font-black text-sm">
+            F
+          </div>
+          <div>
+            <p class="font-extrabold text-slate-900 dark:text-white text-sm">Muhammad Farel Al Asfani</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400">SMK Telkom Malang &bull; 35 TKJ &bull; ITNSA &amp; Futsal</p>
+          </div>
+        </div>
+
+        <!-- Navigation Links & Dual IG -->
+        <div class="flex flex-wrap items-center gap-4 text-sm font-semibold text-slate-600 dark:text-slate-300">
+          <a href="index.html" class="text-sky-600 dark:text-sky-400 font-bold">Beranda</a>
+          <a href="profil.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Profil</a>
+          <a href="kontak.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Kontak</a>
+          <a href="https://instagram.com/f4rreellll" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-sky-400 hover:underline">
+            @f4rreellll
+          </a>
+          <a href="https://instagram.com/_mhananarrafiff" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline">
+            @_mhananarrafiff
+          </a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-xs text-slate-500 dark:text-slate-400 text-center md:text-right">
+          &copy; 2026 Muhammad Farel Al Asfani. Ready for <span class="text-sky-600 dark:text-sky-400 font-bold">Vercel &amp; GitHub</span>.
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= EMBEDDED ALL-IN-ONE JAVASCRIPT ================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Scroll Progress Bar
+      const progressBar = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (progressBar) progressBar.style.width = scrolled + '%';
+      });
+
+      // 2. Light / Dark Theme Switcher Logic
+      const themeToggleBtn = document.getElementById('themeToggleBtn');
+      const mobileThemeToggleBtn = document.getElementById('mobileThemeToggleBtn');
+      
+      function toggleTheme() {
+        const isDark = document.documentElement.classList.contains('dark');
+        if (isDark) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+
+      if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+      if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+
+      // 3. Scroll Reveal Animation using IntersectionObserver
+      const reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        reveals.forEach(el => observer.observe(el));
+      } else {
+        reveals.forEach(el => el.classList.add('active'));
+      }
+
+      // 4. Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuIcon = document.getElementById('menuIcon');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            if (menuIcon) {
+              menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`;
+            }
+          } else {
+            mobileMenu.classList.add('hidden');
+            if (menuIcon) {
+              menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>`;
+            }
+          }
+        });
+      }
+
+      // 5. Navbar Shadow on Scroll
+      const navbar = document.getElementById('mainNavbar');
+      if (navbar) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 20) {
+            navbar.classList.add('shadow-md');
+          } else {
+            navbar.classList.remove('shadow-md');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
